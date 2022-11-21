@@ -24,12 +24,12 @@ export function CoutdownIndex() {
   const seconds: string = String(secondsAmount).padStart(2, '0')
 
   useEffect(() => {
-    let intervalo: any
+    let intervalo
     if (activeCycle) {
       intervalo = setInterval(() => {
         const differenceInTime = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
         if (differenceInTime >= totalSeconds) {
