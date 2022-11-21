@@ -24,7 +24,7 @@ export function CoutdownIndex() {
   const seconds: string = String(secondsAmount).padStart(2, '0')
 
   useEffect(() => {
-    let intervalo
+    let intervalo: any
     if (activeCycle) {
       intervalo = setInterval(() => {
         const differenceInTime = differenceInSeconds(

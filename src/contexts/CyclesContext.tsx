@@ -1,4 +1,5 @@
 import { differenceInSeconds } from 'date-fns'
+
 import {
   createContext,
   ReactNode,
@@ -6,11 +7,13 @@ import {
   useReducer,
   useState,
 } from 'react'
+
 import {
   addNewCycleActionAction,
   interruptCurrentCycleAction,
   markCurrentCycleAsFinishedAction,
 } from '../reducers/cycles/action'
+
 import { CyclesReducers } from '../reducers/cycles/reducer'
 
 interface CycleDataType {
@@ -45,22 +48,20 @@ interface CycleContextProviderProps {
 export const CyclesContext = createContext({} as CycleContextType)
 
 export function CyclesContextProvider({ children }: CycleContextProviderProps) {
-  const [cyclesState, dispatch] = useReducer(
-    CyclesReducers,
-    {
-      cycles: [],
-      activeCycleId: null,
-    },
-    () => {
-      const storedStateAsJSON = localStorage.getItem(
-        '@ignite-timer:cycle-state-1.0.0',
-      )
+  const [cyclesState, dispatch] = useReducer(CyclesReducers, {}, () => {
+    const storedStateAsJSON = localStorage.getItem(
+      '@ignite-timer:cycle-state-1.0.0',
+    )
 
-      if (storedStateAsJSON) {
-        return JSON.parse(storedStateAsJSON)
-      }
-    },
-  )
+    if (storedStateAsJSON) {
+      return JSON.parse(storedStateAsJSON)
+    }
+
+    return {
+      cycles: [],
+      cycleActiveId: null,
+    }
+  })
 
   const { cycles, activeCycleId } = cyclesState
   const activeCycle = cycles.find((data) => data.id === activeCycleId)

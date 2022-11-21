@@ -7,7 +7,7 @@ interface CyclesState {
   activeCycleId: string | null
 }
 
-export function CyclesReducers(state: CyclesState, action) {
+export function CyclesReducers(state: CyclesState, action: any) {
   console.log(state)
   console.log(action)
 
