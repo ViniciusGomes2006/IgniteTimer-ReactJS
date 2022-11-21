@@ -1,7 +1,7 @@
 # Ignite Timer | ReactJs
 
 <li>Preview: https://www.figma.com/file/Nnzn7XbsKmViXAMFQ2BkYj/Ignite-Timer-(Community)?node-id=313%3A1067&t=BCzdQ6jydj52q4Pl-1
-<li>LivePreview: https://ignite-timer-react-ej3kj9ivb-viniciusgomes2006.vercel.app/
+<li>LivePreview: https://ignite-timer-react-js.vercel.app/
 
 <br>
 <br>
